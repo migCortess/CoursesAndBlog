@@ -1,190 +1,86 @@
 ---
-title: 'TypeScript2'
-description: 'TypeScript2 description here 2'
-pubDate: 'Jul 02 2022'
-heroImage: '../../assets/images/placeholder-about.jpg'
-category: 'frontend Development'
-tags: ['JavaScript', 'css', 'HTML5', 'GitHub']
+heroImage: /src/assets/images/back_end_dev.jpg
+category: backend development
+description: Rol de un Back End Developer
+pubDate: 2024-05-29T06:00:00.000Z
+tags:
+  - ruby
+  - java
+  - python
+  - JavaScript
+title: Descripción del Rol de un Back End Developer
 ---
 
-**If you know HTML, you already know enough to write your first Astro component.**
+## ¿Qué hace un Back End Developer?
 
-Astro component syntax is a superset of HTML. The syntax was [designed to feel familiar to anyone with experience writing HTML or JSX](#differences-between-astro-and-jsx), and adds support for including components and JavaScript expressions.
+Un Back End Developer es responsable de la lógica del servidor, las bases de datos y la integración de sistemas que constituyen la parte no visible de una aplicación web. Este rol se centra en asegurar que la aplicación funcione de manera eficiente y segura, manejando la lógica de negocio, las operaciones de bases de datos y las interacciones del servidor. Sus principales responsabilidades incluyen:
 
-## JSX-like Expressions
+* Desarrollo y Mantenimiento del Servidor: Crear y gestionar la lógica del servidor y las API.
+* Gestión de Bases de Datos: Diseñar, implementar y mantener bases de datos para almacenar y recuperar datos de manera eficiente.
+* Integración de Sistemas y Servicios Externos: Conectar la aplicación con servicios externos y APIs de terceros.
+* Seguridad y Autenticación: Implementar medidas de seguridad para proteger los datos y asegurar el acceso autorizado.
 
-You can define local JavaScript variables inside of the frontmatter component script between the two code fences (`---`) of an Astro component. You can then inject these variables into the component's HTML template using JSX-like expressions!
+## Tecnologías que Debe Dominar
 
-:::note[dynamic vs reactive]
-Using this approach, you can include **dynamic** values that are calculated in the frontmatter. But once included, these values are not **reactive** and will never change. Astro components are templates that only run once, during the rendering step.
+### Lenguajes de Programación
 
-See below for more examples of [differences between Astro and JSX](#differences-between-astro-and-jsx).
-:::
+* JavaScript (Node.js): Plataforma para ejecutar JavaScript en el lado del servidor.
+* Python: Lenguaje popular para el desarrollo backend debido a su simplicidad y versatilidad.
+* Java: Lenguaje ampliamente utilizado para aplicaciones empresariales y sistemas de alta concurrencia.
+* Ruby: Lenguaje conocido por su facilidad de uso y el framework Ruby on Rails.
+* PHP: Lenguaje de scripting comúnmente utilizado para el desarrollo web.
 
-### Variables
+### Frameworks y Librerías
 
-Local variables can be added into the HTML using the curly braces syntax:
+#### JavaScript
 
-```astro
----
-const name = 'Astro'
----
+* Express.js: Framework minimalista para Node.js que facilita la creación de aplicaciones web y APIs.
+* NestJS: Framework progresivo de Node.js construido con TypeScript que utiliza conceptos de arquitectura modular.
 
-<div>
-	<h1>Hello {name}!</h1>
-	<!-- Outputs <h1>Hello Astro!</h1> -->
-</div>
-```
+#### Python
 
-### Dynamic Attributes
+* Django: Framework de alto nivel que fomenta el desarrollo rápido y el diseño limpio.
+* Flask: Microframework ligero y flexible para aplicaciones pequeñas a medianas.
 
-Local variables can be used in curly braces to pass attribute values to both HTML elements and components:
+#### Java
 
-```astro title="src/components/DynamicAttributes.astro" "{name}" "${name}"
----
-const name = 'Astro'
----
+* Spring Boot: Framework para crear aplicaciones basadas en Spring que facilita la configuración y la gestión de dependencias.
 
-<h1 class={name}>Attribute expressions are supported</h1>
+#### Ruby
 
-<MyComponent templateLiteralNameAttribute={`MyNameIs${name}`} />
-```
+* Ruby on Rails: Framework completo que proporciona estructuras predeterminadas para bases de datos, servicios web y páginas web.
 
-:::caution
-HTML attributes will be converted to strings, so it is not possible to pass functions and objects to HTML elements.
-For example, you can't assign an event handler to an HTML element in an Astro component:
+#### PHP
 
-```astro
----
-// dont-do-this.astro
-function handleClick() {
-	console.log('button clicked!')
-}
----
+* Laravel: Framework elegante y expresivo que facilita tareas comunes como autenticación, enrutamiento y sesiones.
 
-<!-- ❌ This doesn't work! ❌ -->
-<button onClick={handleClick}>Nothing will happen when you click me!</button>
-```
+### Herramientas y Tecnologías Adicionales
 
-Instead, use a client-side script to add the event handler, like you would in vanilla JavaScript:
+* Bases de Datos Relacionales (MySQL, PostgreSQL): Sistemas de gestión de bases de datos que utilizan un modelo relacional para almacenar datos.
+* Bases de Datos NoSQL (MongoDB, Redis): Sistemas de bases de datos que permiten el almacenamiento y recuperación de datos sin usar el esquema tabular de bases de datos relacionales.
+* Control de Versiones (Git): Herramienta esencial para el control de versiones y la colaboración en proyectos.
+* Servicios en la Nube (AWS, Google Cloud, Azure): Plataformas que ofrecen infraestructura y servicios para desplegar aplicaciones.
 
-```astro
----
-// do-this-instead.astro
----
+## Patrones de Diseño
 
-<button id='button'>Click Me</button>
-<script>
-	function handleClick() {
-		console.log('button clicked!')
-	}
-	document.getElementById('button').addEventListener('click', handleClick)
-</script>
-```
+* MVC (Model-View-Controller): Patrón que separa la lógica de la aplicación en tres componentes interrelacionados.
+* Repository Pattern: Abstracción que separa la lógica de acceso a datos del negocio, facilitando el mantenimiento y la prueba del código.
+* Service Layer: Capa intermedia que contiene la lógica de negocio y que separa la lógica de aplicación del acceso a datos.
+* Singleton, Factory, Observer: Patrones de diseño de software comunes para manejar la creación de objetos y la comunicación entre componentes.
 
-:::
+## Metodologías
 
-### Dynamic HTML
+### Metodologías Ágiles
 
-Local variables can be used in JSX-like functions to produce dynamically-generated HTML elements:
+* Agile: Metodología de desarrollo que enfatiza la colaboración, la flexibilidad y la entrega continua de mejoras.
+* Scrum: Framework ágil que utiliza sprints cortos y reuniones diarias para gestionar el trabajo.
+* Kanban: Sistema visual para gestionar el flujo de trabajo y mejorar la eficiencia mediante la visualización de las tareas.
 
-```astro title="src/components/DynamicHtml.astro" "{item}"
----
-const items = ['Dog', 'Cat', 'Platypus']
----
+### Metodologías DevOps
 
-<ul>
-	{items.map((item) => <li>{item}</li>)}
-</ul>
-```
+* CI/CD (Integración Continua / Entrega Continua): Prácticas que permiten la integración y entrega frecuente de código.
+* Infraestructura como Código (IaC): Técnica para gestionar y aprovisionar la infraestructura de TI mediante archivos de configuración legibles por máquina.
 
-Astro can conditionally display HTML using JSX logical operators and ternary expressions.
+## Conclusión
 
-```astro title="src/components/ConditionalHtml.astro" "visible"
----
-const visible = true
----
-
-{visible && <p>Show me!</p>}
-
-{visible ? <p>Show me!</p> : <p>Else show me!</p>}
-```
-
-### Dynamic Tags
-
-You can also use dynamic tags by setting a variable to an HTML tag name or a component import:
-
-```astro title="src/components/DynamicTags.astro" /Element|(?<!My)Component/
----
-import MyComponent from './MyComponent.astro'
-const Element = 'div'
-const Component = MyComponent
----
-
-<Element>Hello!</Element>
-<!-- renders as <div>Hello!</div> -->
-<Component />
-<!-- renders as <MyComponent /> -->
-```
-
-When using dynamic tags:
-
-- **Variable names must be capitalized.** For example, use `Element`, not `element`. Otherwise, Astro will try to render your variable name as a literal HTML tag.
-
-- **Hydration directives are not supported.** When using [`client:*` hydration directives](/en/core-concepts/framework-components/#hydrating-interactive-components), Astro needs to know which components to bundle for production, and the dynamic tag pattern prevents this from working.
-
-### Fragments
-
-Astro supports using either `<Fragment> </Fragment>` or the shorthand `<> </>`.
-
-Fragments can be useful to avoid wrapper elements when adding [`set:*` directives](/en/reference/directives-reference/#sethtml), as in the following example:
-
-```astro title="src/components/SetHtml.astro" "Fragment"
----
-const htmlString = '<p>Raw HTML content</p>'
----
-
-<Fragment set:html={htmlString} />
-```
-
-### Differences between Astro and JSX
-
-Astro component syntax is a superset of HTML. It was designed to feel familiar to anyone with HTML or JSX experience, but there are a couple of key differences between `.astro` files and JSX.
-
-#### Attributes
-
-In Astro, you use the standard `kebab-case` format for all HTML attributes instead of the `camelCase` used in JSX. This even works for `class`, which is not supported by React.
-
-```jsx del={1} ins={2} title="example.astro"
-<div className="box" dataValue="3" />
-<div class="box" data-value="3" />
-```
-
-#### Multiple Elements
-
-An Astro component template can render multiple elements with no need to wrap everything in a single `<div>` or `<>`, unlike JavaScript or JSX.
-
-```astro title="src/components/RootElements.astro"
----
-// Template with multiple elements
----
-
-<p>No need to wrap elements in a single containing element.</p>
-<p>Astro supports multiple root elements in a template.</p>
-```
-
-#### Comments
-
-In Astro, you can use standard HTML comments or JavaScript-style comments.
-
-```astro title="example.astro"
----
-
----
-
-<!-- HTML comment syntax is valid in .astro files -->{/* JS comment syntax is also valid */}
-```
-
-:::caution
-HTML-style comments will be included in browser DOM, while JS ones will be skipped. To leave TODO messages or other development-only explanations, you may wish to use JavaScript-style comments instead.
-:::
+Ser un Back End Developer requiere una sólida comprensión de las tecnologías del servidor, bases de datos y seguridad, así como una habilidad para trabajar con diversas herramientas y frameworks. Dominar lenguajes como JavaScript (Node.js), Python, Java, Ruby y PHP, junto con frameworks como Express, Django, Spring Boot y Laravel, es esencial. Además, el conocimiento de patrones de diseño y metodologías ágiles y DevOps permite a los desarrolladores crear aplicaciones eficientes, seguras y escalables. Este rol es crucial para asegurar que las aplicaciones no solo funcionen bien, sino que también sean robustas y confiables.
